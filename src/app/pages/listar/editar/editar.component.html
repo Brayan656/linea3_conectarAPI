@@ -1,0 +1,82 @@
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #a8e6cf;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.form-contact {
+  background: #FFF;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 7px 13px 37px rgba(0, 0, 0, .8);
+}
+
+header {
+  width: 100%;
+  background: #ff165d;
+  overflow: hidden;
+  color: white;
+  font-size: small;
+}
+
+header span {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+</style>
+<header>
+    <span>
+      <h1>Axtualiza el producto</h1>
+      <h3><b>No. {{objeto.id}}</b></h3>
+    </span>
+  </header>
+<br>
+<div style="margin: 20px; width: 100%; margin-right: 20px;">
+  <form [formGroup]="elemento" (ngSubmit)="onSubmit()"><!--(ngSubmit)="insertUser($event)">-->
+    <mat-form-field>
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Ej:Computadores a mitad de precio" formControlName="titulo" [(ngModel)]="objeto.title">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Imagen</mat-label>
+        <input matInput placeholder="Ej: https:://www.imagenPrueba.com/imagen" formControlName="url" [(ngModel)]="objeto.image">
+        <img src="{{objeto.image}}" width="80"height="80">
+    </mat-form-field>
+  <br>
+    <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <input matInput placeholder="Ej:Electronicos" formControlName="Categoria" [(ngModel)]="objeto.category">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input type="number" matInput placeholder="Ej:23.99" formControlName="precio"[(ngModel)]="objeto.price">
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <textarea matInput type="textarea" formControlName="mensaje" [(ngModel)]="objeto.description"></textarea>
+    </mat-form-field>
+    
+  <br>
+    <div style="text-align: center;">
+        <button mat-icon-button type="submit">
+            <mat-icon>save</mat-icon>
+            <span>Actualizar</span>
+        </button>
+    </div>
+  </form>
+</div>

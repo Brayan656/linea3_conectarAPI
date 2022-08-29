@@ -1,0 +1,16 @@
+.table{
+    width: 90%; 
+    margin-left: 75px; 
+    margin-right:75px;
+}
+img{
+    margin: 0.5cm;
+}
+td,th{
+    margin: 50 px; 
+    padding: 50 px;
+    box-sizing: var(75px);
+}
+margen{
+    box-sizing: border-box;
+}

@@ -1,0 +1,216 @@
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #a8e6cf;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+.form-contact {
+  background: #FFF;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 7px 13px 37px rgba(0, 0, 0, .8);
+}
+
+header {
+  width: 100%;
+  background: #ff165d;
+  overflow: hidden;
+  color: white;
+  font-size: small;
+}
+
+header span {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+
+.contact {
+  padding: .8rem;
+  overflow: hidden;
+  color: gray;
+}
+
+.contact label, .contact input, .contact textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;   
+}
+
+.contact label {
+  font-weight: 700;
+}
+
+.contact input:not([type='submit']), .contact textarea {
+  border: none;
+  border-bottom: 2px solid #ff165d;
+  margin-bottom: 10px;
+  font-size: 20px;
+  outline: none;
+  color: gray;
+}
+
+.contact textarea {
+  min-height: 100px;
+}
+
+
+</style>
+
+<div>
+  <button mat-flat-button color="primary" (click)="onClose()" >
+    <mat-icon>
+      keyboard_return
+    </mat-icon>
+</button>
+</div>
+<section class="form-contact">
+    <header>
+      <span>
+        <h1>Ingresa tu producto</h1>
+      </span>
+    </header>
+<br>
+  <div style="margin: 20px;">
+    <form [formGroup]="elemento" (ngSubmit)="onSubmit()"><!--(ngSubmit)="insertUser($event)">-->
+      <mat-form-field>
+          <mat-label>Titulo</mat-label>
+          <input matInput placeholder="Ej:Computadores a mitad de precio" formControlName="titulo"  >
+      </mat-form-field>
+      
+      <mat-form-field>
+          <mat-label>Imagen</mat-label>
+          <input matInput placeholder="Ej: https:://www.imagenPrueba.com/imagen" formControlName="url" [(ngModel)]="link" >
+      </mat-form-field>
+          <img src="{{link}}" width="100px" height="100px">
+    
+      <mat-form-field>
+          <mat-label>Categoria</mat-label>
+          <input matInput placeholder="Ej:Electronicos" formControlName="Categoria" >
+      </mat-form-field>
+      
+      <mat-form-field>
+          <mat-label>Precio</mat-label>
+          <input type="number" matInput placeholder="Ej:23.99" formControlName="precio">
+      </mat-form-field>
+      
+    
+      <mat-form-field>
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput type="textarea" formControlName="mensaje"></textarea>
+      </mat-form-field>
+      
+    
+      <div style="text-align: center;">
+          <button mat-icon-button type="submit">
+              <mat-icon>save</mat-icon>
+              <span>Registrar</span>
+          </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<br><br>
+<!--
+<header>
+    <span>
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </span>
+  </header>
+
+<form action="" class="contact" method="POST">
+
+<h1><label for="id">No.</label></h1>
+<label for="id">{{data.id}}</label>
+
+<h1><label for="Titulo">Titulo</label></h1>
+<label for="Titulo">{{data.title}}</label>
+
+<h1><label for="Imagen">Imagen</label></h1>
+<img src="{{data.image}}" width="100"height="100">
+      
+
+<h1><label for="Categoria">Categoria</label></h1>
+<label for="Categoria">{{data.category}}</label>
+      
+      
+
+<h1><label for="precio">precio</label></h1>
+<label for="precio">{{data.price}}</label>
+
+<h1><label for="descripcion">Descripcion</label></h1>
+<label for="descripcion">{{data.description}}</label>
+-->
+<!--
+<form [formGroup]="form" (ngSubmit)="insertUser($event)">
+  <mat-form-field>
+      <mat-label>Documento</mat-label>
+      <input matInput placeholder="Ej:1017102108" formControlName="documento" >
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Ej:Pepe" formControlName="nombre" >
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput placeholder="Ej:Grillo" formControlName="apellido" >
+  </mat-form-field>
+  
+  <mat-form-field>
+      <mat-label>Nickname</mat-label>
+      <input matInput placeholder="Ej:PepeTheOG_92" formControlName="nick">
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Clave</mat-label>
+      <input matInput type="password" formControlName="clave">
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Dirección</mat-label>
+      <input matInput placeholder="Ej:Carrera 6#12 - 20" formControlName="direccion">
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input matInput placeholder="Ej:3102342332" formControlName="celular" >
+  </mat-form-field>
+ 
+
+  <mat-form-field>
+      <mat-label>Celular auxiliar - opcional</mat-label>
+      <input matInput placeholder="Ej:3102342332" formControlName="celularAux" >
+  </mat-form-field>
+  
+
+  <mat-form-field>
+      <mat-label>Correo</mat-label>
+      <input matInput placeholder="Ej:pep@gmail.com" formControlName="correo">
+  </mat-form-field>
+  
+
+  <div style="text-align: center;">
+      <button mat-icon-button type="submit">
+          <mat-icon>save</mat-icon>
+          <span>Registrar</span>
+      </button>
+  </div>
+</form>-->

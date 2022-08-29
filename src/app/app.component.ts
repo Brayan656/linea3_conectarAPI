@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'conectarAPI';
+// tipos de variabe:
+//var: variable global
+//let: variable de metodo
+//const: constante 
+  public accion(s:string){
+    console.log(s); 
+  }
 }

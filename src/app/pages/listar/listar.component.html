@@ -1,0 +1,83 @@
+<!--titulo-->
+<h1 style="text-align: center;">Tienda online falsa</h1><br>
+
+<p style="text-align: center; 
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: large;">
+    Los productos en esta tienda no son reales, esta es una prueba de una API
+</p>
+<!--tabla-->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- id -->
+    <ng-container matColumnDef="id" >
+      <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">No.</div> </th>
+      <td mat-cell *matCellDef="let element" > {{element.id}} </td>
+    </ng-container>
+  
+    <!-- tutulo -->
+    <ng-container matColumnDef="title">
+        <div class="campos">
+            <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Titulo</div> </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </div>
+      
+    </ng-container>
+
+    <!-- imagen -->
+    <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Imagen</div> </th>
+        <td mat-cell *matCellDef="let element"class="img"> <img src="{{element.image}}" width="100"height="100"> </td>
+    </ng-container>
+  
+    <!-- precio -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Precio</div> </th>
+      <td mat-cell *matCellDef="let element"class="th"> {{element.price}} </td>
+    </ng-container>
+  
+    <!-- categoria -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Categoria</div> </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <!-- descripcion -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Descripcion</div> </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- editar -->
+    <ng-container matColumnDef="Editar">
+        <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Editar</div> </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button mat-flat-button color="primary" (click)="actualizarButton(element.id)" >
+                <mat-icon>
+                    swap_horizontal_circle
+                </mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <!-- eliminar 
+    <ng-container matColumnDef="Eliminar">
+        <th mat-header-cell *matHeaderCellDef> <div style="text-align: center;">Eliminar</div> </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button mat-flat-button color="warn" (click)="eliminarButton(element.id)">
+                <mat-icon>
+                    delete_forever
+                </mat-icon>
+            </button>
+        </td>
+    </ng-container>-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div>
+    <router-outlet ></router-outlet>
+  </div>
+  
